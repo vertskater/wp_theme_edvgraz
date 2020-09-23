@@ -1,0 +1,27 @@
+/*! 
+Theme Name: edvgraz
+Author: Christoph Mitterwallner
+Theme URI: https://www.edvgraz.at
+Description: WordPress Theme der Firma edvgraz
+Version: 0.0.1
+Requires at least: 5.0
+Tested up to: 5.5
+Requires PHP: 7.0
+Text Domain: edvgraz
+*/
+
+@import 'external_sytles/normalize';
+@import 'external_sytles/icomoon';
+@import 'external_sytles/screenreaderstyle';
+@import 'variables';
+@import 'basicstyle';
+@import 'navbar';
+@import 'home';
+@import 'category';
+@import 'single-course';
+@import 'team';
+@import 'kontakt';
+@import 'totopbtn';
+@import 'animations';
+@import 'adminbar';
+

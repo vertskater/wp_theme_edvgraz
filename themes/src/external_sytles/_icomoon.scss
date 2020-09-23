@@ -1,0 +1,160 @@
+@font-face {
+  font-family: 'icons';
+  src:  url('./fonts/icons.eot?8frpq7');
+  src:  url('./fonts/icons.eot?8frpq7#iefix') format('embedded-opentype'),
+    url('./fonts/icons.ttf?8frpq7') format('truetype'),
+    url('./fonts/icons.woff?8frpq7') format('woff'),
+    url('./fonts/icons.svg?8frpq7#icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icons' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-carlogo:before {
+  content: "\e914";
+}
+.icon-tramlogo:before {
+  content: "\e915";
+}
+.icon-walklogo:before {
+  content: "\e916";
+}
+.icon-csharplogo:before {
+  content: "\e910";
+}
+.icon-jslogo:before {
+  content: "\e911";
+}
+.icon-pythonlogo:before {
+  content: "\e912";
+}
+.icon-ailogo:before {
+  content: "\e90c";
+}
+.icon-idlogo:before {
+  content: "\e90e";
+}
+.icon-pslogo:before {
+  content: "\e90f";
+}
+.icon-access:before {
+  content: "\e906";
+}
+.icon-excel:before {
+  content: "\e907";
+}
+.icon-outlook:before {
+  content: "\e908";
+}
+.icon-powerpoint:before {
+  content: "\e909";
+}
+.icon-winlogo:before {
+  content: "\e90a";
+}
+.icon-word:before {
+  content: "\e90b";
+}
+.icon-smm_edvgraz:before {
+  content: "\e901";
+  color: #000;
+}
+.icon-office_edvgraz:before {
+  content: "\e902";
+  color: #000;
+}
+.icon-coding_edvgraz:before {
+  content: "\e903";
+  color: #000;
+}
+.icon-grafik_edvgraz:before {
+  content: "\e904";
+  color: #000;
+}
+.icon-home:before {
+  content: "\e900";
+}
+.icon-office:before {
+  content: "\e905";
+}
+.icon-newspaper:before {
+  content: "\e913";
+}
+.icon-image:before {
+  content: "\e90d";
+}
+.icon-books:before {
+  content: "\e920";
+}
+.icon-library:before {
+  content: "\e921";
+}
+.icon-stack:before {
+  content: "\e92e";
+}
+.icon-cart:before {
+  content: "\e93a";
+}
+.icon-coin-euro:before {
+  content: "\e93c";
+}
+.icon-phone:before {
+  content: "\e942";
+}
+.icon-envelop:before {
+  content: "\e945";
+}
+.icon-compass2:before {
+  content: "\e94a";
+}
+.icon-map2:before {
+  content: "\e94c";
+}
+.icon-stopwatch:before {
+  content: "\e952";
+}
+.icon-spinner:before {
+  content: "\e97a";
+}
+.icon-play3:before {
+  content: "\ea1c";
+}
+.icon-circle-up:before {
+  content: "\ea41";
+}
+.icon-circle-down:before {
+  content: "\ea43";
+}
+.icon-radio-unchecked:before {
+  content: "\ea56";
+}
+.icon-facebook2:before {
+  content: "\ea91";
+}
+.icon-instagram:before {
+  content: "\ea92";
+}
+.icon-youtube:before {
+  content: "\ea9d";
+}
+.icon-wordpress:before {
+  content: "\eab4";
+}
+.icon-html-five2:before {
+  content: "\eae5";
+}

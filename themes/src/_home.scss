@@ -1,0 +1,455 @@
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>
+HEADER START
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+#page-header {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    text-align: center;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    span {
+        display: block;
+        transition: all 200ms;
+    }
+
+    .btn-wrapper {
+        //display: none;
+        span {
+            float: left;
+        }
+    }
+}
+.home {
+    #page-header {
+        .btn-wrapper {
+            display: flex;
+        }
+    }
+}
+
+
+.heading-content {
+    &::before {
+        display: none;
+    }
+}
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+SERVICES - Fragen ob es bessere Möglichkeiten gibt wg. Farben.
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+//#services {
+.service-category {
+    padding: 1rem;
+    background-color: $primary-white;
+    //border-radius: 5px;
+    position: relative;
+    height: 100%;
+    > [class^="icon-"],
+    > [class*="icon-"] {
+        font-size: 3em;
+    }
+    h3 {
+        display: inline-block;
+        margin: 0 1em;
+    }
+    .office {
+        background-color: $color-office;
+        opacity: 0;
+        transition: box-shadow 200ms ease-in, opacity 200ms ease-in;
+        &:hover {
+            box-shadow: 0 0 10px $primary-black;
+            opacity: 0.2;
+        }
+    }
+    .grafik {
+        background-color: $color-grafik;
+        opacity: 0;
+        transition: box-shadow 200ms ease-in, opacity 200ms ease-in;
+        &:hover {
+            box-shadow: 0 0 10px $primary-black;
+            opacity: 0.2;
+        }
+    }
+    .coding {
+        background-color: $color-coding;
+        opacity: 0;
+        transition: box-shadow 200ms ease-in, opacity 200ms ease-in;
+        &:hover {
+            box-shadow: 0 0 10px $primary-black;
+            opacity: 0.2;
+        }
+    }
+    .smm {
+        background-color: $color-smm;
+        opacity: 0;
+        transition: box-shadow 200ms ease-in, opacity 200ms ease-in;
+        &:hover {
+            box-shadow: 0 0 10px $primary-black;
+            opacity: 0.2;
+        }
+    }
+    .category-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: none;
+    }
+}
+.office {
+    border: 2px solid $color-office;
+    > [class^="icon-"],
+    > [class*="icon-"] {
+        &::before {
+            color: $color-office;
+        }
+    }
+    h3 {
+        color: $color-office;
+    }
+}
+.grafik {
+    border: 2px solid $color-grafik;
+    > [class^="icon-"],
+    > [class*="icon-"] {
+        &::before {
+            color: $color-grafik;
+        }
+    }
+    h3 {
+        color: $color-grafik;
+    }
+}
+.coding {
+    border: 2px solid $color-coding;
+    > [class^="icon-"],
+    > [class*="icon-"] {
+        &::before {
+            color: $color-coding;
+        }
+    }
+    h3 {
+        color: $color-coding;
+    }
+}
+.smm {
+    border: 2px solid $color-smm;
+    > [class^="icon-"],
+    > [class*="icon-"] {
+        &::before {
+            color: $color-smm;
+        }
+    }
+    h3 {
+        color: $color-smm;
+    }
+}
+//}
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+BENEFITS
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+#benefits {
+    text-align: center;
+    [class^="icon-"],
+    [class*="icon-"] {
+        font-size: 5rem;
+        color: $color-smm;
+    }
+    .col-4,
+    .col-3 {
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+    h3 {
+        hyphens: auto;
+    }
+}
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Kontakt
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+#kontakt {
+    .contact-info {
+        margin: 2rem 0 1.5rem;
+        &::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        dt {
+            float: left;
+            font-size: 2em;
+            color: $color-smm;
+            clear: left;
+        }
+        dd {
+            float: left;
+            margin: 0;
+            padding-left: 1em;
+            a {
+                display: inline-block;
+                padding-top: 0.5em;
+            }
+        }
+    }
+    .form-wrapper {
+        background-color: #ffffff;
+        //border-radius: 5px;
+        border: solid 2px $primary-black;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        padding: 1rem 0.5rem 2rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    button.btn {
+        > span {
+            float: left;
+            background-color: $primary-black;
+            color: $primary-white;
+            font-size: 1.3em;
+        }
+        span {
+            transition: all 250ms;
+        }
+        &:hover span:last-of-type {
+            background-color: rgba(0, 0, 0, 0.2);
+            color: $primary-black;
+            outline: 1px solid $primary-black;
+            outline-offset: -1px;
+        }
+        > [class^="icon-"],
+        > [class*="icon-"] {
+            line-height: inherit;
+        }
+    }
+}
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Footer
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+#page-footer {
+    background-color: $white;
+    color: $primary-black;
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    a {
+        color: inherit;
+    }
+
+    .social-links {
+        padding: 0;
+        list-style-type: none;
+        li {
+            display: inline-block;
+            padding: 0.3rem;
+            font-size: 1.7em;
+        }
+        a {
+            display: inline-block;
+            transition: transform 300ms ease-in;
+            &:hover {
+                text-decoration: none;
+                color: $color-smm;
+                transform: scale(1.3);
+            }
+        }
+    }
+    .copyright {
+        display: inline-block;
+        line-height: 2rem;
+        font-size: 1.2em;
+    }
+    #footer-nav {
+        > ul {
+            padding: 0;
+            list-style-type: none;
+            li {
+                display: inline-block;
+                line-height: 2rem;
+                &::before {
+                    content: "| ";
+                    font-size: 1.1em;
+                }
+                &:first-child::before {
+                    content: "";
+                }
+            }
+        }
+        a:hover {
+            color: $color-smm;
+        }
+    }
+}
+
+/* ************************************* RESPONSIVE **************************************** */
+
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>
+HEADER RESPONSIVE
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+@media only screen and (min-width: 768px) {
+    #page-header {
+        text-align: inherit;
+        .btn-wrapper {
+            width: 80%;
+            margin: 0 auto 0 auto;
+            justify-content: start;
+        }
+        a.btn {
+            display: none;
+        }
+    }
+    .home {
+        #page-header {
+            height: 90vh;
+            a.btn {
+                display: block;
+                > span {
+                    font-size: 1.3em;
+                    padding: 15px;
+                }
+            }
+        }
+    }
+    .heading-content {
+        &::before {
+            display: block;
+        }
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .home {
+        #page-header {
+            height: 100vh;
+            a.btn {
+                > span {
+                    font-size: 1.5em;
+                }
+            }
+        }
+    }
+}
+
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+SERVICE RESPONSIVE
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+@media only screen and (min-width: 1024px) {
+    //#services {
+    .service-category {
+        height: 100%;
+        h3 {
+            display: block;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        p {
+            text-align: center;
+        }
+        > [class^="icon-"],
+        > [class*="icon-"] {
+            font-size: 5em;
+        }
+        > span {
+            display: block;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+    }
+    //}
+}
+
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Benefits RESPONSIVE
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+@media only screen and (min-width: 768px) {
+    #page-header {
+        .heading-content {
+            &::before {
+                background-color: $primary-white;
+            }
+        }
+    }
+    #benefits {
+        text-align: inherit;
+        .col-4 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+            border-right: 1px solid $color-smm;
+            &:last-child {
+                border-right: none;
+            }
+        }
+        h3 {
+            font-size: 1em;
+            margin-top: 20%;
+        }
+    }
+}
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Kontakt RESPONSIVE
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+@media only screen and (min-width: 768px) {
+    #kontakt {
+        .contact-info {
+            columns: 4;
+            max-width: 710px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            dt {
+                float: none;
+                font-size: 2.5em;
+            }
+            dd {
+                float: none;
+                break-before: avoid;
+                padding-left: 0;
+            }
+        }
+        .form-wrapper {
+            padding: 1.5rem 1rem 3rem;
+            button {
+                width: 300px;
+                > span {
+                    width: 20%;
+                    &:last-of-type {
+                        width: calc(80% - 2px);
+                    }
+                }
+            }
+        }
+        .btn-wrapper {
+            justify-content: start;
+        }
+
+        input[type="text"] {
+            float: left;
+            width: 48%;
+            &:nth-child(4) {
+                margin-left: 4%;
+                width: 48%;
+            }
+        }
+    }
+}
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+FOOTER RESPONSIVE
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+@media only screen and (min-width: 768px) {
+    #page-footer {
+        .columns {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .col-3 {
+            &:nth-of-type(2) {
+                order: -1;
+            }
+        }
+    }
+}

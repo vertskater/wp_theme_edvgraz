@@ -1,0 +1,9 @@
+.wp-block{
+    max-width: 90%;
+}
+.wp-block[data-align=wide]{
+    max-width: 95%;
+}
+.wp-block[data-align=full]{
+    max-width: none;
+}

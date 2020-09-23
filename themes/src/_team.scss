@@ -1,0 +1,117 @@
+#page-header.team {
+    position: relative;
+    background-position: center center;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-color: rgba(255, 255, 255, 0.3);
+        pointer-events: none;
+    }
+}
+#team.container{
+    padding-left: 0;
+    padding-right: 0;
+}
+#team{
+    .team-member{
+        overflow: hidden;
+        height: 70vh;
+        > img {
+            width: 100%;
+        }
+    }
+    .team-description{
+        h2{
+            margin: 0;
+            font-weight: lighter;
+        }
+        .team-name{
+            padding: .8em 0;
+            font-weight: 700;
+            > span{
+                padding: .5em 0;
+            }
+        }
+        .team-contact{
+            > a{
+                padding-left: .8em;
+                line-height: 1.5em;
+            }
+        }
+        span{
+            display: block;
+        }
+        [class^="icon-"],
+        [class*="icon-"]{
+            float: left;
+            font-size: 1.5em;
+        }
+    }
+    .blue h2{
+        color: $color-smm;
+    }
+    .red h2 {
+        color: $color-grafik;
+    }
+    .green h2{
+        color: $color-office;
+    }
+    .gold h2 {
+        color: $color-coding;
+    }
+    .blue{
+        [class^="icon-"],
+        [class*="icon-"]{
+            color: $color-smm;
+        }
+    }
+    .red{
+        [class^="icon-"],
+        [class*="icon-"]{
+            color: $color-grafik;
+        }
+    }
+    .green{
+        [class^="icon-"],
+        [class*="icon-"]{
+            color: $color-office;
+        }
+    }
+    .gold{
+        [class^="icon-"],
+        [class*="icon-"]{
+            color: $color-coding;
+        }
+    }
+}
+#history{
+     h4{
+         margin-top: 0;
+     }
+}
+@media only screen and (min-width: 768px) {
+    #team.container {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    #team{
+        .team-member{
+            height: 40vh;
+        }
+    }
+}
+@media only screen and (min-width: 1024px) {
+    #team.container {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    #team{
+        .team-member{
+            height: 60vh;
+        }
+    }
+}

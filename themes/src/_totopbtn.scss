@@ -1,0 +1,24 @@
+#to-top {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+}
+#to-top.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+#to-top a {
+    display: inline-block;
+    color: #EBEBEB;
+    background-color: rgba(58,100,124, .7);
+    padding: 15px;
+    border-radius: 3px;
+    transition: background-color 250ms linear;
+}
+#to-top a:hover {
+    text-decoration: none;
+    background-color: $color-smm;
+}
