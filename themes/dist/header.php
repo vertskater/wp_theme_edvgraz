@@ -30,13 +30,14 @@
         </div>
     </nav>
     <?php 
-    $imgBG = get_field('header_image'); 
+    $imgBG_desktop = get_field('header_image_desktop');
+    $imgBG_mobile = get_field('header_image_mobile'); 
     $subTitle = get_field('subtitle');
     $link = get_field('btn_link');
     ?>
-    <header id="page-header" <?php echo headerBgImage($imgBG); ?>>
+    <header id="page-header" <?php echo headerBgImage($imgBG_desktop, $imgBG_mobile); ?>>
         <div class="heading-content">
-            <h1 class="page-title"><?php echo the_title(); ?></h1>
+            <h1 class="page-title"><?php echo the_title(); ?></h1> <!--TODO: muss the_title übersetzbar sein?? -->
             <span class="sub-title"><?php _e($subTitle, 'edvgraz'); ?></span>
         </div>
     <?php if(is_page_template('homepage.php')) : ?>

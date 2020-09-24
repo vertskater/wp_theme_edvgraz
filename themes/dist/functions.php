@@ -19,8 +19,8 @@ add_action('after_setup_theme', function () {
         'comment-list',
         'comment-form'
     ));
-     //Navigation Registrieren und Positionen übergeben
-     register_nav_menus(array(
+    //Navigation Registrieren und Positionen übergeben
+    register_nav_menus(array(
         'primary' => __('Haupt Navigation', 'edvgraz'),
         'footer' => __('Footer Navigtaion', 'edvgraz')
     ));
@@ -40,7 +40,6 @@ add_action('after_setup_theme', function () {
     //style für Gutenberg-editor einbinden
     add_theme_support('editor-styles');
     add_editor_style('style-editor.css');
-
 });
 
 //CSS & JS in <head> bzw. vor dem </body> einfügen
@@ -54,39 +53,87 @@ add_action('wp_enqueue_scripts', function () {
 });
 
 //HEADER Bild und Text einfügen
-function headerBgImage($img)
+function headerBgImage($imgDesktop, $imgMobile)
 {
-    if (empty($img)) {
-        $srcSM = wp_get_attachment_image_src(get_field('headerimage_desktop', 'options'), 'medium_large');
-        $srcLG = wp_get_attachment_image_src(get_field('headerimage_desktop', 'options'), 'full');
-    } else
-        $srcSM = wp_get_attachment_image_src($img, 'medium_large');
-        $srcLG = wp_get_attachment_image_src($img, 'full');
+    if (!empty($imgDesktop) && (!empty($imgMobile))) {
+        $srcSM = wp_get_attachment_image_src($imgMobile, 'medium_large');
+        $srcLG = wp_get_attachment_image_src($imgDesktop, 'full');
+    }elseif(empty($imgMobile)){
+          $srcSM = wp_get_attachment_image_src($imgDesktop, 'medium_large');
+          $srcLG = wp_get_attachment_image_src($imgDesktop, 'full');
+    }elseif(empty($imgDesktop)){
+         $srcSM = wp_get_attachment_image_src($imgMobile, 'medium_large');
+         $srcLG = wp_get_attachment_image_src($imgMobile, 'full');
+     }
     return ' class="header-bg-image" data-src-sm="' . $srcSM[0] . '"data-src-lg="' . $srcLG[0] . '"';
 }
 
 //Add Color to Customizer - Ermöglicht ändern der Textfarben von Header <h1> und <span> Tags.
-function mytheme_customize_register( $wp_customize ) {
+function mytheme_customize_register($wp_customize)
+{
     //All our sections, settings, and controls will be added here
-    $wp_customize->add_setting( 'header_textcolor' , array(
+    $wp_customize->add_setting('header_textcolor', array(
         'default'     => "#2E2E2E",
         'transport'   => 'refresh',
-    ) );
+    ));
 
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_textcolor', array(
-        'label'        => __( 'Headertext Color', 'mytheme' ),
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'header_textcolor', array(
+        'label'        => __('Headertext Color', 'mytheme'),
         'section'    => 'colors',
-    ) ) );
+    )));
 }
-add_action( 'customize_register', 'mytheme_customize_register' );
+add_action('customize_register', 'mytheme_customize_register');
 
 function mytheme_customize_css()
 {
-    ?>
+?>
     <style type="text/css">
-        h1 { color: #<?php echo get_theme_mod('header_textcolor', "#000000"); ?>; }
-        .sub-title { color: #<?php echo get_theme_mod('header_textcolor', "#000000"); ?>; }
+        h1 {
+            color: #<?php echo get_theme_mod('header_textcolor', "#000000"); ?>;
+        }
+
+        .sub-title {
+            color: #<?php echo get_theme_mod('header_textcolor', "#000000"); ?>;
+        }
     </style>
-    <?php
+<?php
 }
-add_action( 'wp_head', 'mytheme_customize_css');
+add_action('wp_head', 'mytheme_customize_css');
+
+
+//Gutenberg Block Elemente hinzufügen
+//Hinzufügen von Gutenberg-Block-Kategorie
+add_filter('block_categories', function ($categories, $post) {
+    if ($post->post_type !== 'page') {
+        return $categories;
+    }
+    return array_merge(
+        array(
+            array(
+                'slug' => 'edvgraz-category',
+                'title' => __('Eigene', 'edvgraz')
+            ),
+        ),
+        $categories
+    );
+}, 10, 2);
+add_action('acf/init', 'my_acf_init');
+function my_acf_init()
+{
+    // check function exists
+    if (function_exists('acf_register_block')) {
+        // register a testimonial block
+        acf_register_block(array(
+            'name'                => 'heading',
+            'title'                => __('heading'),
+            'description'        => __('Block für Ueberschrift und Unterueberschrift'),
+            'render_template'    => 'template-parts/section-heading.php',
+            'category'            => 'edvgraz-category',
+            'icon'                => 'align-wide',
+            'keywords'            => array('Heading', 'Ueberschrift'),
+            'post_types'          => array('posts', 'page'),
+            'align'             => false,
+            'mode'              => false
+        ));
+    }
+}

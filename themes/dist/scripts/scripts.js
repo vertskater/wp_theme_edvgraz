@@ -27,6 +27,7 @@
         $('#main-nav .current-menu-ancestor input[type="checkbox"],#main-nav .current-menu-parent input[type="checkbox"]').attr("checked","checked");
 
         headerImage();
+        
     });
 
     function toTop(){
@@ -70,4 +71,14 @@
             }
         })
     }
+    $(window).resize(function () {
+        headerImage();
+        // Funktionsaufruf für Animation (damit bereits sichtware Elemente animiert werden)
+        isInViewport();
+        // Funktionsaufruf für toTop Button einblenden
+        toTop();
+        // Funktionsaufruf für Header-Image Src
+       
+    });
+   
 })(jQuery);

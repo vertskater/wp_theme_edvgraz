@@ -636,11 +636,13 @@ h4 {
   margin: 1em 0 0.5em;
 }
 
-blockquote {
+blockquote,
+.wp-block-quote {
+  border-left: 0;
   margin: 0;
-  -webkit-box-shadow: -6px 0px 0px 0px rgba(0, 0, 0, 0.75);
-          box-shadow: -6px 0px 0px 0px rgba(0, 0, 0, 0.75);
-  padding-left: 5px;
+  -webkit-box-shadow: -4px 0px 0px 0px rgba(58, 100, 134, 0.75);
+          box-shadow: -4px 0px 0px 0px rgba(58, 100, 134, 0.75);
+  padding-left: 10px;
 }
 
 figure {
@@ -936,6 +938,10 @@ textarea:focus {
   .container {
     padding-left: 15%;
     padding-right: 15%;
+  }
+  #page-footer.container {
+    padding-left: 5%;
+    padding-right: 5%;
   }
   #navbar {
     padding-left: 5%;
