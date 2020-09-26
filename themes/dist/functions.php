@@ -50,6 +50,7 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('dev-style', get_template_directory_uri() . '/style.css');
     wp_enqueue_script('dev-script', get_template_directory_uri() . '/scripts/scripts.js', array('jquery'), '1.0', true);
     wp_enqueue_script('dev-script', get_template_directory_uri() . '/scripts/megamenu.js', array('jquery'), '1.0', true);
+    wp_register_script('owl-script', get_template_directory_uri() . '/scripts/owl.carousel.min.js', array('jquery'), '1.0', true);
 });
 
 //HEADER Bild und Text einfügen
@@ -58,13 +59,13 @@ function headerBgImage($imgDesktop, $imgMobile)
     if (!empty($imgDesktop) && (!empty($imgMobile))) {
         $srcSM = wp_get_attachment_image_src($imgMobile, 'medium_large');
         $srcLG = wp_get_attachment_image_src($imgDesktop, 'full');
-    }elseif(empty($imgMobile)){
-          $srcSM = wp_get_attachment_image_src($imgDesktop, 'medium_large');
-          $srcLG = wp_get_attachment_image_src($imgDesktop, 'full');
-    }elseif(empty($imgDesktop)){
-         $srcSM = wp_get_attachment_image_src($imgMobile, 'medium_large');
-         $srcLG = wp_get_attachment_image_src($imgMobile, 'full');
-     }
+    } elseif (empty($imgMobile)) {
+        $srcSM = wp_get_attachment_image_src($imgDesktop, 'medium_large');
+        $srcLG = wp_get_attachment_image_src($imgDesktop, 'full');
+    } elseif (empty($imgDesktop)) {
+        $srcSM = wp_get_attachment_image_src($imgMobile, 'medium_large');
+        $srcLG = wp_get_attachment_image_src($imgMobile, 'full');
+    }
     return ' class="header-bg-image" data-src-sm="' . $srcSM[0] . '"data-src-lg="' . $srcLG[0] . '"';
 }
 
@@ -96,44 +97,198 @@ function mytheme_customize_css()
             color: #<?php echo get_theme_mod('header_textcolor', "#000000"); ?>;
         }
     </style>
-<?php
+    <?php
 }
 add_action('wp_head', 'mytheme_customize_css');
+/*---- Custon Post Type ------- */
+// Register Custom Post Type
+function custom_post_testimonials() {
+
+	$labels = array(
+		'name'                  => _x( 'Testimonials', 'Post Type General Name', 'edvgraz' ),
+		'singular_name'         => _x( 'Testimonial', 'Post Type Singular Name', 'edvgraz' ),
+		'menu_name'             => __( 'Testimonials', 'edvgraz' ),
+		'name_admin_bar'        => __( 'Testimonials', 'edvgraz' ),
+		'archives'              => __( 'Testimonials Archives', 'edvgraz' ),
+		'attributes'            => __( 'Testimonials Attributes', 'edvgraz' ),
+		'parent_item_colon'     => __( 'Parent Item:', 'edvgraz' ),
+		'all_items'             => __( 'Alle Testimonials', 'edvgraz' ),
+		'add_new_item'          => __( 'Testimonial hinzufügen', 'edvgraz' ),
+		'add_new'               => __( 'Neues Testimonial', 'edvgraz' ),
+		'new_item'              => __( 'New Item', 'edvgraz' ),
+		'edit_item'             => __( 'Edit Item', 'edvgraz' ),
+		'update_item'           => __( 'Update Item', 'edvgraz' ),
+		'view_item'             => __( 'View Item', 'edvgraz' ),
+		'view_items'            => __( 'View Items', 'edvgraz' ),
+		'search_items'          => __( 'Search Item', 'edvgraz' ),
+		'not_found'             => __( 'Not found', 'edvgraz' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'edvgraz' ),
+		'featured_image'        => __( 'Featured Image', 'edvgraz' ),
+		'set_featured_image'    => __( 'Set featured image', 'edvgraz' ),
+		'remove_featured_image' => __( 'Remove featured image', 'edvgraz' ),
+		'use_featured_image'    => __( 'Use as featured image', 'edvgraz' ),
+		'insert_into_item'      => __( 'Insert into item', 'edvgraz' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this item', 'edvgraz' ),
+		'items_list'            => __( 'Items list', 'edvgraz' ),
+		'items_list_navigation' => __( 'Items list navigation', 'edvgraz' ),
+		'filter_items_list'     => __( 'Filter items list', 'edvgraz' ),
+	);
+	$args = array(
+		'label'                 => __( 'Testimonial', 'edvgraz' ),
+        'labels'                => $labels,
+        'taxonomies'            => array('testimonial_cat'),
+		'supports'              => array( 'title'),
+		'hierarchical'          => false,
+		'public'                => false,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 10,
+		'menu_icon'             => 'dashicons-id',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => false,
+		'can_export'            => true,
+		'has_archive'           => false,
+		'exclude_from_search'   => true,
+		'publicly_queryable'    => false,
+		'capability_type'       => 'post',
+		'show_in_rest'          => false,
+	);
+	register_post_type( 'Testimonials', $args );
+
+}
+add_action( 'init', 'custom_post_testimonials', 0 );
+
+/*Add Taxonomies (Kategorien) to my Testimonials Custom Post Type */
+// Register Custom Taxonomy
+function testimonial_cat() {
+
+	$labels = array(
+		'name'                       => _x( 'Kategorie', 'Taxonomy General Name', 'edvgraz' ),
+		'singular_name'              => _x( 'Kategorie', 'Taxonomy Singular Name', 'edvgraz' ),
+		'menu_name'                  => __( 'Kategorie', 'edvgraz' ),
+		'all_items'                  => __( 'All Items', 'edvgraz' ),
+		'parent_item'                => __( 'Parent Item', 'edvgraz' ),
+		'parent_item_colon'          => __( 'Parent Item:', 'edvgraz' ),
+		'new_item_name'              => __( 'New Item Name', 'edvgraz' ),
+		'add_new_item'               => __( 'Add New Item', 'edvgraz' ),
+		'edit_item'                  => __( 'Edit Item', 'edvgraz' ),
+		'update_item'                => __( 'Update Item', 'edvgraz' ),
+		'view_item'                  => __( 'View Item', 'edvgraz' ),
+		'separate_items_with_commas' => __( 'Separate items with commas', 'edvgraz' ),
+		'add_or_remove_items'        => __( 'Add or remove items', 'edvgraz' ),
+		'choose_from_most_used'      => __( 'Choose from the most used', 'edvgraz' ),
+		'popular_items'              => __( 'Popular Items', 'edvgraz' ),
+		'search_items'               => __( 'Search Items', 'edvgraz' ),
+		'not_found'                  => __( 'Not Found', 'edvgraz' ),
+		'no_terms'                   => __( 'No items', 'edvgraz' ),
+		'items_list'                 => __( 'Items list', 'edvgraz' ),
+		'items_list_navigation'      => __( 'Items list navigation', 'edvgraz' ),
+	);
+	$args = array(
+		'labels'                     => $labels,
+		'hierarchical'               => false,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		'show_tagcloud'              => true,
+	);
+	register_taxonomy( 'testimonial_cat', array( 'Testimonials' ), $args );
+
+}
+add_action( 'init', 'testimonial_cat', 0 );
 
 
-//Gutenberg Block Elemente hinzufügen
-//Hinzufügen von Gutenberg-Block-Kategorie
-add_filter('block_categories', function ($categories, $post) {
-    if ($post->post_type !== 'page') {
-        return $categories;
-    }
-    return array_merge(
-        array(
+if (function_exists('acf_add_options_page')) {
+    //ACF Option Page erstellen
+    acf_add_options_page(array(
+        'page_title' => 'Theme Einstellungen',
+        'menu_title' => 'Theme Einstellungen',
+        'menu_slug' => 'theme einstellungen',
+        'capability' => 'edit_pages',
+        'position' => '100',
+        'redirect' => true,
+        'update_button' => __('Übernehmen', 'edvgraz'),
+        'icon_url' => 'dashicons-admin-customizer',
+        'updated_message' => __('Einstellungen wurden gespeichert', 'edvgraz'),
+    ));
+    //Gutenberg Block Elemente hinzufügen
+    //Hinzufügen von Gutenberg-Block-Kategorie
+    add_filter('block_categories', function ($categories, $post) {
+        if ($post->post_type !== 'page') {
+            return $categories;
+        }
+        return array_merge(
             array(
-                'slug' => 'edvgraz-category',
-                'title' => __('Eigene', 'edvgraz')
+                array(
+                    'slug' => 'edvgraz-category',
+                    'title' => __('edvgraz', 'edvgraz')
+                ),
             ),
-        ),
-        $categories
-    );
-}, 10, 2);
-add_action('acf/init', 'my_acf_init');
-function my_acf_init()
-{
-    // check function exists
-    if (function_exists('acf_register_block')) {
-        // register a testimonial block
-        acf_register_block(array(
-            'name'                => 'heading',
-            'title'                => __('heading'),
-            'description'        => __('Block für Ueberschrift und Unterueberschrift'),
-            'render_template'    => 'template-parts/section-heading.php',
-            'category'            => 'edvgraz-category',
-            'icon'                => 'align-wide',
-            'keywords'            => array('Heading', 'Ueberschrift'),
-            'post_types'          => array('posts', 'page'),
-            'align'             => false,
-            'mode'              => false
-        ));
+            $categories
+        );
+    }, 10, 2);
+    add_action('acf/init', 'my_acf_init');
+    function my_acf_init()
+    {
+        // check function exists
+        if (function_exists('acf_register_block')) {
+            acf_register_block(array(
+                'name'                => 'heading',
+                'title'                => __('heading'),
+                'description'        => __('Block für Ueberschrift und Unterueberschrift'),
+                'render_template'    => 'template-parts/section-heading.php',
+                'category'            => 'edvgraz-category',
+                'icon'                => 'align-wide',
+                'keywords'            => array('Heading', 'Ueberschrift'),
+                'post_types'          => array('posts', 'page'),
+                'align'             => false,
+                'mode'              => false
+            ));
+            acf_register_block(array(
+                'name'                => 'btn_edvgraz',
+                'title'                => __('Button'),
+                'description'        => __('Button bestehend aus Icon, Text und Link'),
+                'render_template'    => 'template-parts/button.php',
+                'category'            => 'edvgraz-category',
+                'icon'                => 'button',
+                'keywords'            => array('Button', 'Button'),
+                'post_types'          => array('posts', 'page'),
+                'align'             => false,
+                'mode'              => false
+            ));
+            acf_register_block(array(
+                'name'                => 'edvgraz_benefits',
+                'title'                => __('Vorteile'),
+                'description'        => __('Liste der Vorteile bei edvgraz'),
+                'render_template'    => 'template-parts/benefits.php',
+                'category'            => 'edvgraz-category',
+                'icon'                => 'thumbs-up',
+                'keywords'            => array('Benefits', 'Vorteile'),
+                'post_types'          => array('posts', 'page'),
+                'align'             => false,
+                'mode'              => false
+            ));
+            acf_register_block(array(
+                'name'                => 'testimonials',
+                'title'                => __('Testimonials'),
+                'description'        => __('Zeigt in einem Slider Testimonials an'),
+                'render_template'    => 'template-parts/testimonials.php',
+                'category'            => 'edvgraz-category',
+                'icon'                => 'admin-users',
+                'keywords'            => array('Testimonials', 'Vorteile'),
+                'post_types'          => array('posts', 'page'),
+                'align'             => false,
+                //'mode'              => false
+            ));
+        }
     }
+} else {
+    //Backend-Fehlermeldung, wenn ACF-Pro nicht installiert ist.
+    add_action('admin_notices', function () { ?>
+        <div class="error notice">
+            <p> <?php _e('Bitte ACF-Pro Version installieren um alle Theme Funktionen nutzen zu können', 'wifi'); ?></p>
+        </div>
+<?php
+    });
 }

@@ -1,57 +1,56 @@
 <aside id="kontakt" class="container animate fade-in-up">
     <div class="heading-content small">
-        <h2 class="section-title">Kontakt</h2>
-        <span class="sub-title">Wir sind persönlich für Sie da</span>
+        <h2 class="section-title"><?php _e('Kontakt', 'edvgraz'); ?></h2>
+        <span class="sub-title"><?php _e('Wir sind persönlich für Sie da', 'edvgraz'); ?></span>
     </div>
-    <dl class="contact-info">
-        <dt>
-            <span class="icon-phone" aria-hidden="true"></span>
-            <span class="screen-reader-text">Telefon</span>
-        </dt>
-        <dd>
-            <a href="tel:+43316215445">+43 316 215 445</a>
-        </dd>
-        <dt>
-            <span class="icon-map2" aria-hidden="true"></span>
-            <span class="screen-reader-text">Adresse</span>
-        </dt>
-        <dd>
-            Kernstockgasse 22<br>
-            8020 Graz
-        </dd>
-        <dt>
-            <span class="icon-envelop" aria-hidden="true"></span>
-            <span class="screen-reader-text">E-Mail</span>
-        </dt>
-        <dd>
-            <a href="mailto:office@edvgraz.at">office@edvgraz.at</a>
-        </dd>
-        <dt>
-            <span class="icon-stopwatch" aria-hidden="true"></span>
-            <span class="screen-reader-text">E-Mail</span>
-        </dt>
-        <dd>
-            Mo - Fr <br> 08:00 bis 13:00
-
-        </dd>
-    </dl>
+    <?php
+    $phone = get_field('phone', 'option');
+    $adress = get_field('adress', 'option');
+    $mail = get_field('mail', 'option');
+    $open = get_field('open', 'option');
+    if (!empty($phone)) : ?>
+        <dl class="contact-info">
+            <dt>
+                <span class="icon-phone" aria-hidden="true"></span>
+                <span class="screen-reader-text"><?php _e('Telefon', 'edvgraz'); ?></span>
+            </dt>
+            <dd>
+                <a href="<?php echo 'tel: ' . preg_replace('/[^\+\d]+/', '', $phone); ?>"><?php echo $phone; ?></a>
+            </dd>
+        <?php endif;
+    if (!empty($adress)) :
+        ?>
+            <dt>
+                <span class="icon-map2" aria-hidden="true"></span>
+                <span class="screen-reader-text"><?php _e('Adresse', 'edvgraz'); ?></span>
+            </dt>
+            <dd>
+                <?php echo $adress; ?>
+            </dd>
+        <?php endif;
+    if (!empty($mail)) :
+        ?>
+            <dt>
+                <span class="icon-envelop" aria-hidden="true"></span>
+                <span class="screen-reader-text"><?php _e('E-Mail', 'edvgraz'); ?></span>
+            </dt>
+            <dd>
+                <a href="<?php echo antispambot('mailto:' . $mail); ?>"><?php echo antispambot($mail); ?></a>
+            </dd>
+        <?php endif;
+    if (!empty($open)) :
+        ?>
+            <dt>
+                <span class="icon-stopwatch" aria-hidden="true"></span>
+                <span class="screen-reader-text"><?php _e('Öffnungszeiten', 'edvgraz'); ?></span>
+            </dt>
+            <dd>
+                <?php echo $open; ?>
+            </dd>
+        </dl>
+    <?php endif; ?>
     <div class="form-wrapper">
-        <form action="#" method="get">
-            <label for="name" class="screen-reader-text">Vorname*</label>
-            <input type="text" id="vorname" name="name" placeholder="Vorname *" required>
-            <label for="name" class="screen-reader-text">Nachname*</label>
-            <input type="text" id="nachname" name="name" placeholder="Nachname *" required>
-            <label for="email" class="screen-reader-text">E-Mail*</label>
-            <input type="email" id="email" name="email" placeholder="E-Mail *" required>
-            <label for="message" class="screen-reader-text">Nachricht*</label>
-            <textarea id="message" name="message" placeholder="Nachricht *" required></textarea>
-            <div class="forms-actions btn-wrapper">
-                <button href="#" class="btn">
-                    <span class="btn-header-icon icon-envelop"></span>
-                    <span class="btn-header-text">Senden</span>
-                </button>
-            </div>
-        </form>
+        <?php echo do_shortcode('[wpforms id="145"]'); ?>
     </div>
 </aside>
 <footer id="page-footer" class="container">
@@ -94,6 +93,7 @@
         </div>
     </div>
 </footer>
+<?php include(locate_template('template-parts/to-top.php')); ?>
 <?php wp_footer(); ?>
 </body>
 

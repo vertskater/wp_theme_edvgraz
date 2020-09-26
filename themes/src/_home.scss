@@ -152,7 +152,7 @@ SERVICES - Fragen ob es bessere Möglichkeiten gibt wg. Farben.
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 BENEFITS
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-#benefits {
+.benefits {
     text-align: center;
     [class^="icon-"],
     [class*="icon-"] {
@@ -204,7 +204,7 @@ Kontakt
         position: relative;
         z-index: 1;
     }
-
+    
     button.btn {
         > span {
             float: left;
@@ -372,7 +372,7 @@ Benefits RESPONSIVE
             }
         }
     }
-    #benefits {
+    .benefits {
         text-align: inherit;
         .col-4 {
             padding-left: 1rem;
@@ -424,7 +424,6 @@ Kontakt RESPONSIVE
         .btn-wrapper {
             justify-content: start;
         }
-
         input[type="text"] {
             float: left;
             width: 48%;

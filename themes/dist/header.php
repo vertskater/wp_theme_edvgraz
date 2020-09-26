@@ -29,23 +29,34 @@
             )); ?>
         </div>
     </nav>
-    <?php 
+    <?php
     $imgBG_desktop = get_field('header_image_desktop');
-    $imgBG_mobile = get_field('header_image_mobile'); 
+    $imgBG_mobile = get_field('header_image_mobile');
     $subTitle = get_field('subtitle');
     $link = get_field('btn_link');
     ?>
     <header id="page-header" <?php echo headerBgImage($imgBG_desktop, $imgBG_mobile); ?>>
         <div class="heading-content">
-            <h1 class="page-title"><?php echo the_title(); ?></h1> <!--TODO: muss the_title übersetzbar sein?? -->
-            <span class="sub-title"><?php _e($subTitle, 'edvgraz'); ?></span>
+            <h1 class="page-title"><?php
+                                    if (is_404()) {
+                                        echo _e('Seite nicht gefunden', 'edvgraz');
+                                    } else {
+                                        echo the_title();
+                                    }
+                                    ?></h1>
+            <span class="sub-title"><?php
+                                    if (is_404()) {
+                                        echo _e('Die gewünschte Seite gibt es leider nicht', 'edvgraz');
+                                    } else {
+                                        _e($subTitle, 'edvgraz');
+                                    } ?></span>
         </div>
-    <?php if(is_page_template('homepage.php')) : ?>
-        <div class="btn-wrapper">
-            <a href="<?php echo $link['url'];?>" class="btn">
-                <span class="btn-header-icon <?php echo get_field('icon');?>"></span>
-                <span class="btn-header-text"><?php echo get_field('button_text');?></span>
-            </a>
-        </div>
-    <?php endif; ?>
+        <?php if (is_page_template('homepage.php')) : ?>
+            <div class="btn-wrapper">
+                <a href="<?php echo $link['url']; ?>" class="btn">
+                    <span class="btn-header-icon <?php echo get_field('icon'); ?>"></span>
+                    <span class="btn-header-text"><?php echo get_field('button_text'); ?></span>
+                </a>
+            </div>
+        <?php endif; ?>
     </header>

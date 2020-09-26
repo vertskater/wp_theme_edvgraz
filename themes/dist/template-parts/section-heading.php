@@ -1,10 +1,20 @@
 <?php
-//TODO: Weshalb die Klassen und ID Variablen
+$id = 'block!-' . $block['id'];
+$className = 'heading-content small';
+
+if (!empty($block['anchor'])) {
+    $id = $block['anchor'];
+}
+if (!empty($block['className'])) {
+    $className .= ' ' . $block['className'];
+}
 $heading = get_field('section_heading');
 $subHeading = get_field('section_subheading');
 if (!empty($heading)) : ?>
-    <div class="heading-content small">
+</section>
+<section class="container animate fade-in-up">
+    <header id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className);?>">
         <h2 class="section-title"> <?php _e($heading, 'edvgraz');?></h2>
         <span class="sub-title"><?php _e($subHeading, 'edvgraz');?></span>
-    </div>
+    </header>
 <?php endif; ?>
