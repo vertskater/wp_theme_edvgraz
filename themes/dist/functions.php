@@ -153,7 +153,7 @@ function custom_post_testimonials() {
 		'capability_type'       => 'post',
 		'show_in_rest'          => false,
 	);
-	register_post_type( 'Testimonials', $args );
+	register_post_type( 'testimonials', $args );
 
 }
 add_action( 'init', 'custom_post_testimonials', 0 );
@@ -193,7 +193,7 @@ function testimonial_cat() {
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 	);
-	register_taxonomy( 'testimonial_cat', array( 'Testimonials' ), $args );
+	register_taxonomy( 'testimonial_cat', array( 'testimonials' ), $args );
 
 }
 add_action( 'init', 'testimonial_cat', 0 );
