@@ -281,6 +281,18 @@ if (function_exists('acf_add_options_page')) {
                 'align'             => false,
                 //'mode'              => false
             ));
+            acf_register_block(array(
+                'name'                => 'coachings',
+                'title'                => __('Coachings'),
+                'description'        => __('Übersicht der angebonenen Coachings'),
+                'render_template'    => 'template-parts/coachings.php',
+                'category'            => 'edvgraz-category',
+                'icon'                => 'admin-users',
+                'keywords'            => array('Coachings', 'Coachings'),
+                'post_types'          => array('posts', 'page'),
+                'align'             => false,
+                //'mode'              => false
+            ));
         }
     }
 } else {

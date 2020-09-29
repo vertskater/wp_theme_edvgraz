@@ -11,8 +11,7 @@ if (!empty($block['className'])) {
 }
 $benefits = get_field('benefits');
 
-if(!empty($benefits)) : 
-?>
+if(!empty($benefits)) : ?>
 <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
 <?php foreach ($benefits as $item) : ?>
     <div class="col-4">

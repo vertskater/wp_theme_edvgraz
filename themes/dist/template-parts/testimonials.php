@@ -1,4 +1,6 @@
 <?php
+$category = get_field('testimonial_cat');
+
 query_posts(array(
     'post_type' => 'Testimonials',
     'posts_per_page' => 6,

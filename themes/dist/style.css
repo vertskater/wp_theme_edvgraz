@@ -2173,96 +2173,92 @@ FOOTER RESPONSIVE
   display: inherit;
 }
 
-#office-courses .service-category {
+.office-courses .service-category {
   border: 2px solid #85C69F;
 }
 
-#office-courses .service-category h3,
-#office-courses .service-category > [class^="icon-"],
-#office-courses .service-category > [class*="icon-"] {
+.office-courses .service-category h3,
+.office-courses .service-category > [class^="icon-"],
+.office-courses .service-category > [class*="icon-"] {
   color: #85C69F;
 }
 
-#office-courses .service-category .btn-wrapper a.btn > span {
+.office-courses .service-category .btn-wrapper a.btn > span {
   background-color: #85C69F;
 }
 
-#office-courses .service-category .btn-wrapper a.btn:hover span:last-of-type {
+.office-courses .service-category .btn-wrapper a.btn:hover span:last-of-type {
   background-color: transparent;
   color: #85C69F;
   outline: 1px solid #85C69F;
   outline-offset: -1px;
 }
 
-#grafik-courses .service-category {
+.grafik-courses .service-category {
   border: 2px solid #FF818C;
 }
 
-#grafik-courses .service-category h3,
-#grafik-courses .service-category > [class^="icon-"],
-#grafik-courses .service-category > [class*="icon-"] {
+.grafik-courses .service-category h3,
+.grafik-courses .service-category > [class^="icon-"],
+.grafik-courses .service-category > [class*="icon-"] {
   color: #FF818C;
 }
 
-#grafik-courses .service-category .btn-wrapper a.btn > span {
+.grafik-courses .service-category .btn-wrapper a.btn > span {
   background-color: #FF818C;
 }
 
-#grafik-courses .service-category .btn-wrapper a.btn:hover span:last-of-type {
+.grafik-courses .service-category .btn-wrapper a.btn:hover span:last-of-type {
   background-color: transparent;
   color: #FF818C;
   outline: 1px solid #FF818C;
   outline-offset: -1px;
 }
 
-#coding-courses .service-category {
+.coding-courses .service-category {
   border: 2px solid #DFCC64;
 }
 
-#coding-courses .service-category h3 {
+.coding-courses .service-category h3,
+.coding-courses .service-category > [class^="icon-"],
+.coding-courses .service-category > [class*="icon-"] {
   color: #DFCC64;
 }
 
-#coding-courses .service-category > [class^="icon-"]::before,
-#coding-courses .service-category > [class*="icon-"]::before {
-  color: #DFCC64;
-}
-
-#coding-courses .service-category .btn-wrapper a.btn > span {
+.coding-courses .service-category .btn-wrapper a.btn > span {
   background-color: #DFCC64;
 }
 
-#coding-courses .service-category .btn-wrapper a.btn:hover span:last-of-type {
+.coding-courses .service-category .btn-wrapper a.btn:hover span:last-of-type {
   background-color: transparent;
   color: #DFCC64;
   outline: 1px solid #DFCC64;
   outline-offset: -1px;
 }
 
-#smm-courses .service-category {
+.smm-courses .service-category {
   border: 2px solid #3B6486;
 }
 
-#smm-courses .service-category h3::before,
-#smm-courses .service-category > [class^="icon-"]::before,
-#smm-courses .service-category > [class*="icon-"]::before {
+.smm-courses .service-category h3,
+.smm-courses .service-category > [class^="icon-"],
+.smm-courses .service-category > [class*="icon-"] {
   color: #3B6486;
 }
 
-#smm-courses .service-category .btn-wrapper .icon-office_edvgraz::before {
-  color: #F0F0F0;
-}
-
-#smm-courses .service-category .btn-wrapper a.btn > span {
+.smm-courses .service-category .btn-wrapper a.btn > span {
   background-color: #3B6486;
-  color: #F0F0F0;
 }
 
-#smm-courses .service-category .btn-wrapper a.btn:hover span:last-of-type {
+.smm-courses .service-category .btn-wrapper a.btn:hover span:last-of-type {
   background-color: transparent;
   color: #3B6486;
   outline: 1px solid #3B6486;
   outline-offset: -1px;
+}
+
+.smm-courses .service-category .btn-wrapper a.btn > span {
+  color: #F0F0F0;
 }
 
 /* ************************************* RESPONSIVE **************************************** */
@@ -2270,41 +2266,41 @@ FOOTER RESPONSIVE
 OFFICE COURSES RESPONSIVE
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 @media only screen and (min-width: 768px) {
-  #office-courses .service-category,
-  #grafik-courses .service-category,
-  #coding-courses .service-category,
-  #smm-courses .service-category {
+  .office-courses .service-category,
+  .grafik-courses .service-category,
+  .coding-courses .service-category,
+  .smm-courses .service-category {
     position: relative;
     padding-bottom: 4rem;
   }
-  #office-courses .service-category > span,
-  #grafik-courses .service-category > span,
-  #coding-courses .service-category > span,
-  #smm-courses .service-category > span {
+  .office-courses .service-category > span,
+  .grafik-courses .service-category > span,
+  .coding-courses .service-category > span,
+  .smm-courses .service-category > span {
     display: block;
     text-align: center;
     margin-bottom: 1rem;
   }
-  #office-courses .service-category h3,
-  #grafik-courses .service-category h3,
-  #coding-courses .service-category h3,
-  #smm-courses .service-category h3 {
+  .office-courses .service-category h3,
+  .grafik-courses .service-category h3,
+  .coding-courses .service-category h3,
+  .smm-courses .service-category h3 {
     display: block;
     text-align: center;
   }
-  #office-courses .service-category p,
-  #grafik-courses .service-category p,
-  #coding-courses .service-category p,
-  #smm-courses .service-category p {
+  .office-courses .service-category p,
+  .grafik-courses .service-category p,
+  .coding-courses .service-category p,
+  .smm-courses .service-category p {
     -webkit-hyphens: auto;
         -ms-hyphens: auto;
             hyphens: auto;
     text-align: justify;
   }
-  #office-courses .service-category .btn-wrapper,
-  #grafik-courses .service-category .btn-wrapper,
-  #coding-courses .service-category .btn-wrapper,
-  #smm-courses .service-category .btn-wrapper {
+  .office-courses .service-category .btn-wrapper,
+  .grafik-courses .service-category .btn-wrapper,
+  .coding-courses .service-category .btn-wrapper,
+  .smm-courses .service-category .btn-wrapper {
     position: absolute;
     bottom: 1rem;
     left: 1rem;
@@ -2312,14 +2308,14 @@ OFFICE COURSES RESPONSIVE
 }
 
 @media only screen and (min-width: 1024px) {
-  #office-courses .service-category > [class^="icon-"],
-  #office-courses .service-category > [class*="icon-"],
-  #grafik-courses .service-category > [class^="icon-"],
-  #grafik-courses .service-category > [class*="icon-"],
-  #coding-courses .service-category > [class^="icon-"],
-  #coding-courses .service-category > [class*="icon-"],
-  #smm-courses .service-category > [class^="icon-"],
-  #smm-courses .service-category > [class*="icon-"] {
+  .office-courses .service-category > [class^="icon-"],
+  .office-courses .service-category > [class*="icon-"],
+  .grafik-courses .service-category > [class^="icon-"],
+  .grafik-courses .service-category > [class*="icon-"],
+  .coding-courses .service-category > [class^="icon-"],
+  .coding-courses .service-category > [class*="icon-"],
+  .smm-courses .service-category > [class^="icon-"],
+  .smm-courses .service-category > [class*="icon-"] {
     font-size: 3rem;
   }
 }

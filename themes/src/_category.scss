@@ -1,3 +1,26 @@
+@mixin coachings($color) {
+    .service-category {
+        border: 2px solid $color;
+        h3,
+        > [class^="icon-"],
+        > [class*="icon-"] {
+            color: $color;
+        }
+        .btn-wrapper {
+            a.btn {
+                > span {
+                    background-color: $color;
+                }
+                &:hover span:last-of-type {
+                    background-color: transparent;
+                    color: $color;
+                    outline: 1px solid $color;
+                    outline-offset: -1px;
+                }
+            }
+        }
+    }
+}
 .service-category {
     .btn-wrapper {
         //position: absolute;
@@ -7,107 +30,23 @@
         }
     }
 }
-#office-courses {
-    .service-category {
-        border: 2px solid $color-office;
-        h3,
-        > [class^="icon-"],
-        > [class*="icon-"] {
-            color: $color-office;
-        }
-        .btn-wrapper {
-            a.btn {
-                > span {
-                    background-color: $color-office;
-                }
-                &:hover span:last-of-type {
-                    background-color: transparent;
-                    color: $color-office;
-                    outline: 1px solid $color-office;
-                    outline-offset: -1px;
-                }
-            }
-        }
-    }
+.office-courses {
+    @include coachings($color-office);
+}
+.grafik-courses {
+    @include coachings($color-grafik);
+}
+.coding-courses {
+    @include coachings($color-coding);
 }
 
-#grafik-courses {
+.smm-courses {
+    @include coachings($color-smm);
     .service-category {
-        border: 2px solid $color-grafik;
-        h3,
-        > [class^="icon-"],
-        > [class*="icon-"] {
-            color: $color-grafik;
-        }
         .btn-wrapper {
             a.btn {
                 > span {
-                    background-color: $color-grafik;
-                }
-                &:hover span:last-of-type {
-                    background-color: transparent;
-                    color: $color-grafik;
-                    outline: 1px solid $color-grafik;
-                    outline-offset: -1px;
-                }
-            }
-        }
-    }
-}
-#coding-courses {
-    .service-category {
-        border: 2px solid $color-coding;
-        h3{
-            color: $color-coding;
-        }
-        > [class^="icon-"],
-        > [class*="icon-"] {
-            &::before {
-                color: $color-coding;
-            }
-        }
-        .btn-wrapper {
-            a.btn {
-                > span {
-                    background-color: $color-coding;
-                }
-                &:hover span:last-of-type {
-                    background-color: transparent;
-                    color: $color-coding;
-                    outline: 1px solid $color-coding;
-                    outline-offset: -1px;
-                }
-            }
-        }
-    }
-}
-#smm-courses {
-    .service-category {
-        border: 2px solid $color-smm;
-        h3,
-        > [class^="icon-"],
-        > [class*="icon-"] {
-            &::before {
-                color: $color-smm;
-            }
-        }
-        .btn-wrapper {
-            .icon-office_edvgraz {
-                &::before {
                     color: $primary-white;
-                }
-            }
-            a.btn {
-                > span {
-                    background-color: $color-smm;
-                    color: $primary-white;
-                }
-
-                &:hover span:last-of-type {
-                    background-color: transparent;
-                    color: $color-smm;
-                    outline: 1px solid $color-smm;
-                    outline-offset: -1px;
                 }
             }
         }
@@ -119,10 +58,10 @@
 OFFICE COURSES RESPONSIVE
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 @media only screen and (min-width: 768px) {
-    #office-courses,
-    #grafik-courses,
-    #coding-courses,
-    #smm-courses {
+    .office-courses,
+    .grafik-courses,
+    .coding-courses,
+    .smm-courses {
         .service-category {
             position: relative;
             padding-bottom: 4rem;
@@ -148,10 +87,10 @@ OFFICE COURSES RESPONSIVE
     }
 }
 @media only screen and (min-width: 1024px) {
-    #office-courses,
-    #grafik-courses,
-    #coding-courses,
-    #smm-courses {
+    .office-courses,
+    .grafik-courses,
+    .coding-courses,
+    .smm-courses {
         .service-category {
             > [class^="icon-"],
             > [class*="icon-"] {
