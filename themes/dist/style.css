@@ -2320,204 +2320,216 @@ OFFICE COURSES RESPONSIVE
   }
 }
 
-.office #single-course {
+.office {
+  position: relative;
+  background-color: #F0F0F0;
   text-align: center;
 }
 
-.office #single-course .columns {
+.office .columns {
   border: 2px solid #85C69F;
   background-color: #F0F0F0;
   position: relative;
 }
 
-.office #single-course .contact-info {
+.office .contact-info {
   margin: 0;
 }
 
-.office #single-course .contact-info > dd {
+.office .contact-info > dd {
   margin: 0;
 }
 
-.office #single-course .contact-info [class^="icon-"],
-.office #single-course .contact-info [class*="icon-"] {
+.office .contact-info [class^="icon-"],
+.office .contact-info [class*="icon-"] {
   font-size: 2em;
   color: #85C69F;
 }
 
-.office #single-course .contact-info dd {
+.office .contact-info dd {
   padding: 1rem 0 1rem 0;
 }
 
-.office #single-course .contact-info dd > h3 {
+.office .contact-info dd > h3 {
   margin: 0;
 }
 
-.office #single-course .btn-wrapper {
+.office .btn-wrapper {
   margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
-.office #single-course .btn-wrapper a {
+.office .btn-wrapper a {
   display: inherit;
 }
 
-.office #single-course .btn-wrapper a.btn > span {
+.office .btn-wrapper a.btn > span {
   background-color: #85C69F;
 }
 
-.office #single-course .btn-wrapper a.btn:hover span:last-of-type {
+.office .btn-wrapper a.btn:hover span:last-of-type {
   background-color: transparent;
   color: #85C69F;
   outline: 1px solid #85C69F;
   outline-offset: -1px;
 }
 
-.grafik #single-course {
+.grafik {
+  position: relative;
+  background-color: #F0F0F0;
   text-align: center;
 }
 
-.grafik #single-course .columns {
+.grafik .columns {
   border: 2px solid #FF818C;
   background-color: #F0F0F0;
   position: relative;
 }
 
-.grafik #single-course .contact-info {
+.grafik .contact-info {
   margin: 0;
 }
 
-.grafik #single-course .contact-info > dd {
+.grafik .contact-info > dd {
   margin: 0;
 }
 
-.grafik #single-course .contact-info [class^="icon-"],
-.grafik #single-course .contact-info [class*="icon-"] {
+.grafik .contact-info [class^="icon-"],
+.grafik .contact-info [class*="icon-"] {
   font-size: 2em;
   color: #FF818C;
 }
 
-.grafik #single-course .contact-info dd {
+.grafik .contact-info dd {
   padding: 1rem 0 1rem 0;
 }
 
-.grafik #single-course .contact-info dd > h3 {
+.grafik .contact-info dd > h3 {
   margin: 0;
 }
 
-.grafik #single-course .btn-wrapper {
+.grafik .btn-wrapper {
   margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
-.grafik #single-course .btn-wrapper a {
+.grafik .btn-wrapper a {
   display: inherit;
 }
 
-.grafik #single-course .btn-wrapper a.btn > span {
+.grafik .btn-wrapper a.btn > span {
   background-color: #FF818C;
 }
 
-.grafik #single-course .btn-wrapper a.btn:hover span:last-of-type {
+.grafik .btn-wrapper a.btn:hover span:last-of-type {
   background-color: transparent;
   color: #FF818C;
   outline: 1px solid #FF818C;
   outline-offset: -1px;
 }
 
-.coding #single-course {
+.coding {
+  position: relative;
+  background-color: #F0F0F0;
   text-align: center;
 }
 
-.coding #single-course .columns {
+.coding .columns {
   border: 2px solid #DFCC64;
   background-color: #F0F0F0;
   position: relative;
 }
 
-.coding #single-course .contact-info {
+.coding .contact-info {
   margin: 0;
 }
 
-.coding #single-course .contact-info > dd {
+.coding .contact-info > dd {
   margin: 0;
 }
 
-.coding #single-course .contact-info [class^="icon-"],
-.coding #single-course .contact-info [class*="icon-"] {
+.coding .contact-info [class^="icon-"],
+.coding .contact-info [class*="icon-"] {
   font-size: 2em;
   color: #DFCC64;
 }
 
-.coding #single-course .contact-info dd {
+.coding .contact-info dd {
   padding: 1rem 0 1rem 0;
 }
 
-.coding #single-course .contact-info dd > h3 {
+.coding .contact-info dd > h3 {
   margin: 0;
 }
 
-.coding #single-course .btn-wrapper {
+.coding .btn-wrapper {
   margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
-.coding #single-course .btn-wrapper a {
+.coding .btn-wrapper a {
   display: inherit;
 }
 
-.coding #single-course .btn-wrapper a.btn > span {
+.coding .btn-wrapper a.btn > span {
   background-color: #DFCC64;
 }
 
-.coding #single-course .btn-wrapper a.btn:hover span:last-of-type {
+.coding .btn-wrapper a.btn:hover span:last-of-type {
   background-color: transparent;
   color: #DFCC64;
   outline: 1px solid #DFCC64;
   outline-offset: -1px;
 }
 
-.smm #single-course {
+.smm {
+  position: relative;
+  background-color: #F0F0F0;
   text-align: center;
 }
 
-.smm #single-course .columns {
+.smm .columns {
   border: 2px solid #3B6486;
   background-color: #F0F0F0;
   position: relative;
 }
 
-.smm #single-course .contact-info {
+.smm .contact-info {
   margin: 0;
 }
 
-.smm #single-course .contact-info > dd {
+.smm .contact-info > dd {
   margin: 0;
 }
 
-.smm #single-course .contact-info [class^="icon-"],
-.smm #single-course .contact-info [class*="icon-"] {
+.smm .contact-info [class^="icon-"],
+.smm .contact-info [class*="icon-"] {
   font-size: 2em;
   color: #3B6486;
 }
 
-.smm #single-course .contact-info dd {
+.smm .contact-info dd {
   padding: 1rem 0 1rem 0;
 }
 
-.smm #single-course .contact-info dd > h3 {
+.smm .contact-info dd > h3 {
   margin: 0;
 }
 
-.smm #single-course .btn-wrapper {
+.smm .btn-wrapper {
   margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
-.smm #single-course .btn-wrapper a {
+.smm .btn-wrapper a {
   display: inherit;
 }
 
-.smm #single-course .btn-wrapper a.btn > span {
+.smm .btn-wrapper a.btn > span {
   background-color: #3B6486;
 }
 
-.smm #single-course .btn-wrapper a.btn:hover span:last-of-type {
+.smm .btn-wrapper a.btn:hover span:last-of-type {
   background-color: transparent;
   color: #3B6486;
   outline: 1px solid #3B6486;
@@ -2525,17 +2537,19 @@ OFFICE COURSES RESPONSIVE
 }
 
 @media only screen and (min-width: 768px) {
-  #single-course .btn-wrapper {
+  .btn-wrapper {
     position: absolute;
     bottom: 1rem;
     right: 1rem;
   }
-  #kontakt.registration input[type="text"]:nth-child(4) {
-    margin-left: 0;
-  }
-  #kontakt.registration input[type="text"]:nth-child(6) {
-    margin-left: 4%;
-  }
+}
+
+#kontakt.registration input[type="text"]:nth-child(4) {
+  margin-left: 0;
+}
+
+#kontakt.registration input[type="text"]:nth-child(6) {
+  margin-left: 4%;
 }
 
 #page-header.team {

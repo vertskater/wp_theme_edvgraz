@@ -287,8 +287,20 @@ if (function_exists('acf_add_options_page')) {
                 'description'        => __('Übersicht der angebonenen Coachings'),
                 'render_template'    => 'template-parts/coachings.php',
                 'category'            => 'edvgraz-category',
-                'icon'                => 'admin-users',
+                'icon'                => 'table-col-after',
                 'keywords'            => array('Coachings', 'Coachings'),
+                'post_types'          => array('posts', 'page'),
+                'align'             => false,
+                //'mode'              => false
+            ));
+            acf_register_block(array(
+                'name'                => 'coaching_detail',
+                'title'                => __('Coaching Kurzbeschreibung'),
+                'description'        => __('Detailbeschreibung der jeweiligen Coachings'),
+                'render_template'    => 'template-parts/coaching_detail.php',
+                'category'            => 'edvgraz-category',
+                'icon'                => 'table-row-before',
+                'keywords'            => array('Datail', 'Coachings-Detail'),
                 'post_types'          => array('posts', 'page'),
                 'align'             => false,
                 //'mode'              => false

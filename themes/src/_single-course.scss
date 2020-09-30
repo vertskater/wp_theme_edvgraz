@@ -1,193 +1,73 @@
-.office {
-    #single-course {
-        text-align: center;
-        .columns {
-            border: 2px solid $color-office;
-            background-color: $primary-white;
-            position: relative;
-        }
-        .contact-info {
+@mixin single-course($color){
+    position: relative;
+    background-color: $primary-white;
+    text-align: center;
+    .columns {
+        border: 2px solid $color;
+        background-color: $primary-white;
+        position: relative;
+    }
+    .contact-info {
+        margin: 0;
+        > dd {
             margin: 0;
-            > dd {
-                margin: 0;
-            }
-            [class^="icon-"],
-            [class*="icon-"] {
-                font-size: 2em;
-                color: $color-office;
-            }
-            dd {
-                padding: 1rem 0 1rem 0;
-                > h3 {
-                    margin: 0;
-                }
-            }
         }
-        .btn-wrapper {
-            margin-top: 1rem;
-            a {
-                display: inherit;
-            }
-            a.btn {
-                > span {
-                    background-color: $color-office;
-                }
-                &:hover span:last-of-type {
-                    background-color: transparent;
-                    color: $color-office;
-                    outline: 1px solid $color-office;
-                    outline-offset: -1px;
-                }
+        [class^="icon-"],
+        [class*="icon-"] {
+            font-size: 2em;
+            color: $color;
+        }
+        dd {
+            padding: 1rem 0 1rem 0;
+            > h3 {
+                margin: 0;
             }
         }
     }
+    .btn-wrapper {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        a {
+            display: inherit;
+        }
+        a.btn {
+            > span {
+                background-color: $color;
+            }
+            &:hover span:last-of-type {
+                background-color: transparent;
+                color: $color;
+                outline: 1px solid $color;
+                outline-offset: -1px;
+            }
+        }
+    }
+}
+
+.office {
+    @include single-course($color-office);
 }
 .grafik {
-    #single-course {
-        text-align: center;
-        .columns {
-            border: 2px solid $color-grafik;
-            background-color: $primary-white;
-            position: relative;
-        }
-        .contact-info {
-            margin: 0;
-            > dd {
-                margin: 0;
-            }
-            [class^="icon-"],
-            [class*="icon-"] {
-                font-size: 2em;
-                color: $color-grafik;
-            }
-            dd {
-                padding: 1rem 0 1rem 0;
-                > h3 {
-                    margin: 0;
-                }
-            }
-        }
-        .btn-wrapper {
-            margin-top: 1rem;
-            a {
-                display: inherit;
-            }
-            a.btn {
-                > span {
-                    background-color: $color-grafik;
-                }
-                &:hover span:last-of-type {
-                    background-color: transparent;
-                    color: $color-grafik;
-                    outline: 1px solid $color-grafik;
-                    outline-offset: -1px;
-                }
-            }
-        }
-    }
+    @include single-course($color-grafik);
 }
 .coding {
-    #single-course {
-        text-align: center;
-        .columns {
-            border: 2px solid $color-coding;
-            background-color: $primary-white;
-            position: relative;
-        }
-        .contact-info {
-            margin: 0;
-            > dd {
-                margin: 0;
-            }
-            [class^="icon-"],
-            [class*="icon-"] {
-                font-size: 2em;
-                color: $color-coding;
-            }
-            dd {
-                padding: 1rem 0 1rem 0;
-                > h3 {
-                    margin: 0;
-                }
-            }
-        }
-        .btn-wrapper {
-            margin-top: 1rem;
-            a {
-                display: inherit;
-            }
-            a.btn {
-                > span {
-                    background-color: $color-coding;
-                }
-                &:hover span:last-of-type {
-                    background-color: transparent;
-                    color: $color-coding;
-                    outline: 1px solid $color-coding;
-                    outline-offset: -1px;
-                }
-            }
-        }
-    }
+    @include single-course($color-coding);
 }
 .smm {
-    #single-course {
-        text-align: center;
-        .columns {
-            border: 2px solid $color-smm;
-            background-color: $primary-white;
-            position: relative;
-        }
-        .contact-info {
-            margin: 0;
-            > dd {
-                margin: 0;
-            }
-            [class^="icon-"],
-            [class*="icon-"] {
-                font-size: 2em;
-                color: $color-smm;
-            }
-            dd {
-                padding: 1rem 0 1rem 0;
-                > h3 {
-                    margin: 0;
-                }
-            }
-        }
-        .btn-wrapper {
-            margin-top: 1rem;
-            a {
-                display: inherit;
-            }
-            a.btn {
-                > span {
-                    background-color: $color-smm;
-                }
-                &:hover span:last-of-type {
-                    background-color: transparent;
-                    color: $color-smm;
-                    outline: 1px solid $color-smm;
-                    outline-offset: -1px;
-                }
-            }
-        }
-    }
+    @include single-course($color-smm);
 }
 @media only screen and (min-width: 768px) {
-    #single-course {
-        .btn-wrapper {
-            position: absolute;
-            bottom: 1rem;
-            right: 1rem;
-        }
+    .btn-wrapper {
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
     }
-    #kontakt.registration {
-        input[type="text"]:nth-child(4) {
-            margin-left: 0;
-        }
-        input[type="text"]:nth-child(6) {
-            margin-left: 4%;
-        }
+}
+#kontakt.registration {
+    input[type="text"]:nth-child(4) {
+        margin-left: 0;
+    }
+    input[type="text"]:nth-child(6) {
+        margin-left: 4%;
     }
 }
