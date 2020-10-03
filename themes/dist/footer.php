@@ -25,7 +25,7 @@
                 <span class="screen-reader-text"><?php _e('Adresse', 'edvgraz'); ?></span>
             </dt>
             <dd>
-                <?php echo $adress; ?>
+                <a href="https://www.google.com/maps/place/Kernstockgasse+22,+8020+Graz/@47.0699228,15.4262908,17z/data=!3m1!4b1!4m5!3m4!1s0x476e357702b82543:0x3d6e4ef85878ee70!8m2!3d47.0699228!4d15.4284795" target="_blank"><?php echo $adress; ?></a>
             </dd>
         <?php endif;
     if (!empty($mail)) :
@@ -49,9 +49,11 @@
             </dd>
         </dl>
     <?php endif; ?>
+    <?php if(!is_page_template('booking.php')): ?>
     <div class="form-wrapper">
         <?php echo do_shortcode('[wpforms id="145"]'); ?>
     </div>
+    <?php endif;?>
 </aside>
 <footer id="page-footer" class="container">
     <div class="columns">

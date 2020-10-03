@@ -233,6 +233,9 @@
                         }
                     }
                 }
+                > li.cta.current-menu-item a{
+                    color: $primary-white;
+                }
                 > li.menu-item-has-children {
                     > a {
                         padding-right: 1rem;
@@ -258,6 +261,14 @@
                     > a{
                         color: $color-smm;
                         border-bottom: solid 2px $color-smm;
+                    }
+                }
+                .megamenu{
+                    li.current-menu-item{
+                        > a{
+                            color: $color-smm;
+                            border-bottom: none;
+                        }
                     }
                 }
             }
@@ -296,7 +307,7 @@
                         border: none;
                         padding: 0;
                         a {
-                            line-height: 1.5em;
+                            line-height: 1.9em;
                             height: auto;
                         }
                     }

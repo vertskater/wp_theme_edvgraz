@@ -1,11 +1,22 @@
 <?php
-
-query_posts(array(
-     'post_type' => 'Testimonials',
-     'posts_per_page' => 6,
-     'orderby' => 'rand',
- ));
-
+// $categorys_test = get_the_terms(get_the_ID(),'testimonial_cat');
+// $category = $categorys_test[0];
+// $cat_name = $category->name; 
+// query_posts(array(
+//     'post_type' => 'Testimonials',
+//     'posts_per_page' => 6,
+//     'orderby' => 'rand',
+// ));
+$args = array(
+    'post_type' => 'testimonials',
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'testimonial_cat',
+            'field' => 'slug',
+            'terms' => array( 'grafik' )
+             )
+    )
+);
 query_posts( $args );
 
 

@@ -40,6 +40,42 @@ add_action('after_setup_theme', function () {
     //style für Gutenberg-editor einbinden
     add_theme_support('editor-styles');
     add_editor_style('style-editor.css');
+    //Responsive Embeds (zb. Youtube Videos, IFrame)
+    add_theme_support('responsive-embeds');
+    //eigene Farbauswahl-Palette deaktivieren
+    add_theme_support('disable-custom-colors');
+    add_theme_support('editor-color-palette',array(
+        array(
+            'name' => __('Font-Color', 'edvgraz'),
+            'slug' => 'color-1',
+            'color' => '#2E2E2E'
+        ),
+        array(
+            'name' => __('Font-Color2', 'edvgraz'),
+            'slug' => 'color-2',
+            'color' => '#F0F0F0'
+        ),
+        array(
+            'name' => __('Office-Color', 'edvgraz'),
+            'slug' => 'color-3',
+            'color' => '#85C69F'
+        ),
+        array(
+            'name' => __('Grafik-Color', 'edvgraz'),
+            'slug' => 'color-4',
+            'color' => '#FF818C'
+        ),
+        array(
+            'name' => __('Coding-Color', 'edvgraz'),
+            'slug' => 'color-5',
+            'color' => '#DFCC64'
+        ),
+        array(
+            'name' => __('smm-Color', 'edvgraz'),
+            'slug' => 'color-6',
+            'color' => '#3B6486'
+        )
+    ));
 });
 
 //CSS & JS in <head> bzw. vor dem </body> einfügen
@@ -267,13 +303,61 @@ if (function_exists('acf_add_options_page')) {
                 'mode'              => false
             ));
             acf_register_block(array(
-                'name'                => 'testimonials',
-                'title'                => __('Testimonials'),
-                'description'        => __('Zeigt in einem Slider Testimonials an'),
+                'name'                => 'testimonials_all_block',
+                'title'                => __('Testimonials Alle'),
+                'description'        => __('Zeigt in einem Slider mit allen Testimonials an'),
                 'render_template'    => 'template-parts/testimonials.php',
                 'category'            => 'edvgraz-category',
                 'icon'                => 'admin-users',
-                'keywords'            => array('Testimonials', 'Vorteile'),
+                'keywords'            => array('Testimonials', 'Testimonials'),
+                'post_types'          => array('posts', 'page'),
+                'align'             => false,
+                //'mode'              => false
+            ));
+            acf_register_block(array(
+                'name'                => 'testimonials_grafik_block',
+                'title'                => __('Testimonials Grafik'),
+                'description'        => __('Zeigt in einem Slider Testimonials Grafik an'),
+                'render_template'    => 'template-parts/testimonials_grafik.php',
+                'category'            => 'edvgraz-category',
+                'icon'                => 'admin-users',
+                'keywords'            => array('Testimonials', 'Testimonials'),
+                'post_types'          => array('posts', 'page'),
+                'align'             => false,
+                //'mode'              => false
+            ));
+            acf_register_block(array(
+                'name'                => 'testimonials_office_block',
+                'title'                => __('Testimonials Office'),
+                'description'        => __('Zeigt in einem Slider Testimonials Office an'),
+                'render_template'    => 'template-parts/testimonials_office.php',
+                'category'            => 'edvgraz-category',
+                'icon'                => 'admin-users',
+                'keywords'            => array('Testimonials', 'Testimonials'),
+                'post_types'          => array('posts', 'page'),
+                'align'             => false,
+                //'mode'              => false
+            ));
+            acf_register_block(array(
+                'name'                => 'testimonials_coding_block',
+                'title'                => __('Testimonials Coding'),
+                'description'        => __('Zeigt in einem Slider Testimonials Coding an'),
+                'render_template'    => 'template-parts/testimonials_coding.php',
+                'category'            => 'edvgraz-category',
+                'icon'                => 'admin-users',
+                'keywords'            => array('Testimonials', 'Testimonials'),
+                'post_types'          => array('posts', 'page'),
+                'align'             => false,
+                //'mode'              => false
+            ));
+            acf_register_block(array(
+                'name'                => 'testimonials_socialmedia_block',
+                'title'                => __('Testimonials SocialMedia'),
+                'description'        => __('Zeigt in einem Slider Testimonials SocialMedia an'),
+                'render_template'    => 'template-parts/testimonials_smm.php',
+                'category'            => 'edvgraz-category',
+                'icon'                => 'admin-users',
+                'keywords'            => array('Testimonials', 'Testimonials'),
                 'post_types'          => array('posts', 'page'),
                 'align'             => false,
                 //'mode'              => false

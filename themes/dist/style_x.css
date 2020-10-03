@@ -1570,9 +1570,14 @@ button:focus {
     color: #3B6486;
     border-bottom: solid 2px #3B6486;
   }
+ 
   #navbar #main-nav .main-nav-menu li.current-menu-item > a {
     color: #3B6486;
     border-bottom: solid 2px #3B6486;
+  }
+  #navbar #main-nav .main-nav-menu .megamenu li.current-menu-item > a {
+    color: #3B6486;
+    border-bottom: none;
   }
   #navbar #main-nav .sub-menu {
     position: absolute;
@@ -1609,7 +1614,7 @@ button:focus {
     padding: 0;
   }
   #navbar #main-nav .megamenu > .sub-menu li a {
-    line-height: 1.5em;
+    line-height: 1.9em;
     height: auto;
   }
   #navbar #main-nav .megamenu:hover > .sub-menu {
@@ -2900,6 +2905,7 @@ A N I M A T I O N S
   background-color: #3B6486;
   color: #fff;
   padding: 1rem;
+  margin-top: .6rem;
 }
 
 .blog-description a {
@@ -2916,6 +2922,7 @@ A N I M A T I O N S
 
 .blog-description .blog-title a {
   color: #fff;
+  font-size: .8em;
 }
 
 .blog-description .blog-title a:hover {
@@ -2960,5 +2967,62 @@ aside#kontakt {
 #content .sidebar {
   padding-top: 0;
   padding-bottom: 0;
+  margin-top: 5rem;
+  margin-bottom: 4rem;
+}
+#content .sidebar .widget{
+    padding: 1rem;
+    background-color: #fff;
+    margin-bottom: 2rem;
+}
+#content .sidebar .widget-title{
+  color: #3B6486;
+  margin-top: 0;
+  box-shadow: inset 0 -3px 0 #ebebeb;
+}
+#content .sidebar .widget-title span{
+  display: inline-block;
+  padding-bottom: .3em;
+  border-bottom: 3px solid #3B6486;
+}
+.sidebar .widget_archive ul,
+.sidebar .widget_categories ul {
+  list-style-type: none;
+  padding: 0;
+}
+.sidebar .widget_archive ul li,
+.sidebar .widget_categories ul li{
+  padding-top: .5em;
+}
+.sidebar .widget_categories ul li a{
+  box-shadow: inset 2px 0 0 #3B6486;
+  padding-left: .7em;
+}
+.post-pagination{
+  margin-top: 3rem;
+}
+.post-pagination .nav-previous {
+  width: 50%;
+  float: left;
+  text-align: right;
+  padding-right: 1.5em;
+}
+
+.post-pagination .nav-next {
+  width: 50%;
+  float: right;
+  text-align: left;
+  padding-left: 1.5em;
+}
+@media only screen and (min-width: 1024px){
+  .main-content {
+    float: left;
+    width: calc(100% - 330px);
+    padding-top: 3rem;
+  }
+  .sidebar{
+    width: 300px;
+    float: right;
+  }
 }
 /*# sourceMappingURL=style.css.map */
