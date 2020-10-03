@@ -27,6 +27,8 @@
         $('#main-nav .current-menu-ancestor input[type="checkbox"],#main-nav .current-menu-parent input[type="checkbox"]').attr("checked");
 
         headerImage();
+        //Ajax Tabs
+        $("#tabs").tabs();
         
     });
 

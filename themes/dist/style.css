@@ -1671,6 +1671,7 @@ HEADER START
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
+  background-attachment: fixed;
   text-align: center;
   height: 40vh;
   display: -webkit-box;
@@ -3101,5 +3102,67 @@ aside#kontakt {
 
 .has-color-6-background-color {
   background-color: #3B6486;
+}
+
+#tabs .ui-tabs-nav {
+  width: 50%;
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+#tabs .ui-tabs-nav::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+#tabs .ui-tabs-nav > li {
+  padding: 1rem;
+  background-color: #3B6486;
+}
+
+#tabs .ui-tabs-nav > li a {
+  padding: 1rem;
+  color: #F0F0F0;
+}
+
+@media only screen and (min-width: 768px) {
+  #tabs .ui-tabs-nav {
+    width: 100%;
+  }
+  #tabs .ui-tabs-nav > li {
+    float: left;
+    display: block;
+  }
+  #tabs .ui-tabs-nav > li:first-of-type {
+    padding-left: 0;
+  }
+  #tabs .ui-tabs-nav .ui-tabs-active {
+    background-color: #F0F0F0;
+    border: 3px solid #2E2E2E;
+    border-bottom: transparent;
+  }
+  #tabs .ui-tabs-nav .ui-tabs-active a {
+    color: #2E2E2E;
+  }
+  #tabs .ui-tabs-nav .ui-tabs-active a:focus {
+    outline: none;
+  }
+  #tabs #tab-1,
+  #tabs #tab-2,
+  #tabs #tab-3,
+  #tabs #tab-4 {
+    background-color: #F0F0F0;
+  }
+  #tabs #tab-1 p,
+  #tabs #tab-2 p,
+  #tabs #tab-3 p,
+  #tabs #tab-4 p {
+    margin: 0;
+    padding: 1rem;
+    -webkit-box-shadow: 0px -3px 0px 0px rgba(0, 0, 0, 0.75);
+            box-shadow: 0px -3px 0px 0px rgba(0, 0, 0, 0.75);
+  }
 }
 /*# sourceMappingURL=style.css.map */

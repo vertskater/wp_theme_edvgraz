@@ -5,6 +5,7 @@ HEADER START
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
+    background-attachment: fixed;
     text-align: center;
     height: 40vh;
     display: flex;
@@ -15,7 +16,6 @@ HEADER START
         display: block;
         transition: all 200ms;
     }
-
     .btn-wrapper {
         //display: none;
         span {

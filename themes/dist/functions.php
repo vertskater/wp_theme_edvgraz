@@ -425,3 +425,12 @@ add_action('widgets_init', function () { //Sidebar für Widgets registrieren und
     unregister_widget('WP_Widget_Media_Video');
     unregister_widget('WP_Widget_Media_Gallery');
 });
+
+ 
+function load_custom_scripts() {
+    wp_enqueue_script('jquery-ui-core');// enqueue jQuery UI Core
+    wp_enqueue_script('jquery-ui-tabs');// enqueue jQuery UI Tabs
+}
+ 
+add_action( 'wp_enqueue_scripts', 'load_custom_scripts' );
+ 
