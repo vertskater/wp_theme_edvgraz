@@ -30,33 +30,43 @@
         </div>
     </nav>
     <?php
+    $headerTitle = '';
+    $headerSubTitle ='';
+    $subTitle = get_field('subtitle');
+
+    if(is_home()){
+        $headerTitle = __('Blog', 'edvgraz');
+        $headerSubTitle = __('Neues aus der digitalen Welt');
+    }elseif(is_archive()){
+        $headerTitle = single_cat_title('', false);
+        $headerSubTitle = __('Kategorie', 'edvgraz');
+    }elseif(is_404()){
+        $headerTitle = __('Seite nicht gefunden', 'edvgraz');
+        $headerSubTitle = __('Die gewünschte Seite gibt es leider nicht', 'edvgraz');
+    }elseif(is_single()){
+        $headerTitle = get_the_title();
+        $headerSubTitle = __('Blogbeitrag', 'edvgraz');
+    }else{
+        $headerTitle = get_the_title();
+        $headerSubTitle = $subTitle;
+    }
     $imgBG_desktop = get_field('header_image_desktop');
     $imgBG_mobile = get_field('header_image_mobile');
-    $subTitle = get_field('subtitle');
     $link = get_field('btn_link');
+    
     ?>
     <header id="page-header" <?php echo headerBgImage($imgBG_desktop, $imgBG_mobile); ?>>
         <div class="heading-content">
-            <h1 class="page-title"><?php
-                                    if (is_404()) {
-                                        echo _e('Seite nicht gefunden', 'edvgraz');
-                                    } else {
-                                        echo the_title();
-                                    }
-                                    ?></h1>
-            <span class="sub-title"><?php
-                                    if (is_404()) {
-                                        echo _e('Die gewünschte Seite gibt es leider nicht', 'edvgraz');
-                                    } else {
-                                        _e($subTitle, 'edvgraz');
-                                    } ?></span>
+            <h1 class="page-title"><?php; echo $headerTitle;?></h1>
+            <span class="sub-title"><?php echo $headerSubTitle;?></span>
         </div>
         <?php if (is_page_template('homepage.php')) : ?>
             <div class="btn-wrapper">
-                <a href="<?php echo $link['url']; ?>" class="btn">
+                <a href="<?php echo $link['url']; ?>" id="btn-homepage" class="btn">
                     <span class="btn-header-icon <?php echo get_field('icon'); ?>"></span>
                     <span class="btn-header-text"><?php echo get_field('button_text'); ?></span>
                 </a>
             </div>
-        <?php endif; ?>
+        <?php endif;
+        ?>
     </header>

@@ -55,41 +55,26 @@ SERVICES - Fragen ob es bessere Möglichkeiten gibt wg. Farben.
         display: inline-block;
         margin: 0 1em;
     }
-    .office {
-        background-color: $color-office;
+    @mixin teaser-color($color) {
+        background-color: $color;
         opacity: 0;
         transition: box-shadow 200ms ease-in, opacity 200ms ease-in;
         &:hover {
             box-shadow: 0 0 10px $primary-black;
             opacity: 0.2;
         }
+    }
+    .office {
+        @include teaser-color($color-office);
     }
     .grafik {
-        background-color: $color-grafik;
-        opacity: 0;
-        transition: box-shadow 200ms ease-in, opacity 200ms ease-in;
-        &:hover {
-            box-shadow: 0 0 10px $primary-black;
-            opacity: 0.2;
-        }
+        @include teaser-color($color-grafik);
     }
     .coding {
-        background-color: $color-coding;
-        opacity: 0;
-        transition: box-shadow 200ms ease-in, opacity 200ms ease-in;
-        &:hover {
-            box-shadow: 0 0 10px $primary-black;
-            opacity: 0.2;
-        }
+        @include teaser-color($color-coding);
     }
     .smm {
-        background-color: $color-smm;
-        opacity: 0;
-        transition: box-shadow 200ms ease-in, opacity 200ms ease-in;
-        &:hover {
-            box-shadow: 0 0 10px $primary-black;
-            opacity: 0.2;
-        }
+        @include teaser-color($color-smm);
     }
     .category-link {
         position: absolute;
@@ -100,53 +85,29 @@ SERVICES - Fragen ob es bessere Möglichkeiten gibt wg. Farben.
         border: none;
     }
 }
-.office {
-    border: 2px solid $color-office;
+@mixin teaser-border-icon($color){
+    border: 2px solid $color;
     > [class^="icon-"],
     > [class*="icon-"] {
         &::before {
-            color: $color-office;
+            color: $color;
         }
     }
     h3 {
-        color: $color-office;
+        color: $color;
     }
+}
+.office {
+    @include teaser-border-icon($color-office);
 }
 .grafik {
-    border: 2px solid $color-grafik;
-    > [class^="icon-"],
-    > [class*="icon-"] {
-        &::before {
-            color: $color-grafik;
-        }
-    }
-    h3 {
-        color: $color-grafik;
-    }
+    @include teaser-border-icon($color-grafik);
 }
 .coding {
-    border: 2px solid $color-coding;
-    > [class^="icon-"],
-    > [class*="icon-"] {
-        &::before {
-            color: $color-coding;
-        }
-    }
-    h3 {
-        color: $color-coding;
-    }
+    @include teaser-border-icon($color-coding);
 }
 .smm {
-    border: 2px solid $color-smm;
-    > [class^="icon-"],
-    > [class*="icon-"] {
-        &::before {
-            color: $color-smm;
-        }
-    }
-    h3 {
-        color: $color-smm;
-    }
+    @include teaser-border-icon($color-smm);
 }
 //}
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -296,10 +257,11 @@ HEADER RESPONSIVE
             width: 80%;
             margin: 0 auto 0 auto;
             justify-content: start;
+            position: inherit;
         }
-        a.btn {
-            display: none;
-        }
+        // a.btn {
+           //display: none;
+        // }
     }
     .home {
         #page-header {

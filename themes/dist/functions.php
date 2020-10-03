@@ -59,12 +59,9 @@ function headerBgImage($imgDesktop, $imgMobile)
     if (!empty($imgDesktop) && (!empty($imgMobile))) {
         $srcSM = wp_get_attachment_image_src($imgMobile, 'medium_large');
         $srcLG = wp_get_attachment_image_src($imgDesktop, 'full');
-    } elseif (empty($imgMobile)) {
-        $srcSM = wp_get_attachment_image_src($imgDesktop, 'medium_large');
-        $srcLG = wp_get_attachment_image_src($imgDesktop, 'full');
-    } elseif (empty($imgDesktop)) {
-        $srcSM = wp_get_attachment_image_src($imgMobile, 'medium_large');
-        $srcLG = wp_get_attachment_image_src($imgMobile, 'full');
+    } else{
+        $srcSM = wp_get_attachment_image_src(get_field('placeholder_img_mob', 'options'), 'medium_large');
+        $srcLG = wp_get_attachment_image_src(get_field('placeholder_img_desk', 'options'), 'full');
     }
     return ' class="header-bg-image" data-src-sm="' . $srcSM[0] . '"data-src-lg="' . $srcLG[0] . '"';
 }
@@ -305,6 +302,18 @@ if (function_exists('acf_add_options_page')) {
                 'align'             => false,
                 //'mode'              => false
             ));
+            acf_register_block(array(
+                'name'                => 'teaser_coachings',
+                'title'                => __('Coaching Kathegorien Teaser'),
+                'description'        => __('Coachingkathegorien'),
+                'render_template'    => 'template-parts/coaching_teaser.php',
+                'category'            => 'edvgraz-category',
+                'icon'                => 'table-row-before',
+                'keywords'            => array('Teaser', 'Coachings-Teaser'),
+                'post_types'          => array('posts', 'page'),
+                'align'             => false,
+                //'mode'              => false
+            ));
         }
     }
 } else {
@@ -316,3 +325,19 @@ if (function_exists('acf_add_options_page')) {
 <?php
     });
 }
+
+add_action('widgets_init', function () { //Sidebar für Widgets registrieren und benennen.
+    register_sidebar(array(
+        'name' => __('Sidebar für Beitrags-Detailseiten', 'edvgraz'),
+        'id' => 'sidebar_posts',
+        'description' => __('Diese Widgets werden nur auf den Beitrags-Detailseiten angezeigt', 'edvgraz'),
+        'before_widget' => '<div class="widget %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h4 class="widget-title"><span>',
+        'after_title' => '</span></h4>'
+    ));
+    unregister_widget('WP_Widget_Media_Audio');
+    unregister_widget('WP_Widget_Media_Image');
+    unregister_widget('WP_Widget_Media_Video');
+    unregister_widget('WP_Widget_Media_Gallery');
+});

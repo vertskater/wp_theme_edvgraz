@@ -165,10 +165,10 @@
         li {
             input[type="checkbox"]:checked {
                 ~ .sub-menu {
-                    display: block;
+                    display: block; //TODO:muss eventuell wieder einkommentiert werden
                     background-color: $white;
                     .menu-item-has-children {
-                        background-color: #f2f2ed;
+                         background-color: #f2f2ed;
                     }
                 }
                 ~ .menu-toggle {
