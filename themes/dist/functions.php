@@ -123,11 +123,11 @@ function mytheme_customize_css()
 ?>
     <style type="text/css">
         h1 {
-            color: #<?php echo get_theme_mod('header_textcolor', "#000000"); ?>;
+            color: #<?php echo get_theme_mod('header_textcolor', "#000000"); ?>
         }
 
         .sub-title {
-            color: #<?php echo get_theme_mod('header_textcolor', "#000000"); ?>;
+            color: #<?php echo get_theme_mod('header_textcolor', "#000000"); ?>
         }
     </style>
     <?php
