@@ -398,8 +398,21 @@ if (function_exists('acf_add_options_page')) {
                 'align'             => false,
                 //'mode'              => false
             ));
+            acf_register_block(array(
+                'name'                => 'tabs_customers',
+                'title'                => __('Für wen coachen wir'),
+                'description'        => __('Coachingkathegorien'),
+                'render_template'    => 'template-parts/tabs.php',
+                'category'            => 'edvgraz-category',
+                'icon'                => 'table-row-after',
+                'keywords'            => array('tabs', 'Tabs-Customers'),
+                'post_types'          => array('posts', 'page'),
+                'align'             => false,
+                //'mode'              => false
+            ));
         }
     }
+    require_once(get_template_directory() . '/acf/fields.php');
 } else {
     //Backend-Fehlermeldung, wenn ACF-Pro nicht installiert ist.
     add_action('admin_notices', function () { ?>

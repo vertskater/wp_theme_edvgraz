@@ -1,59 +1,103 @@
-#tabs{
-    .ui-tabs-nav{
-        width: 50%;
+.tabs {
+    .ui-tabs-nav {
         list-style-type: none;
-            padding: 0;
-            margin-bottom: 0;
-            &::after {
-                content: "";
-                display: block;
-                clear: both;
+        padding: 0;
+        margin-bottom: 0;
+        &::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        > li {
+            background-color: $color-smm;
+            &:focus {
+                outline: none;
             }
-            >li{
+            a {
                 padding: 1rem;
-                background-color: $color-smm;
-                a {
-                    padding: 1rem;
-                    color: $primary-white;
+                color: $primary-white;
+                display: block;
+            }
+        }
+        .ui-tabs-active {
+            background-color: $primary-white;
+            border: 3px solid $primary-black;
+
+            a {
+                color: $primary-black;
+                &:focus {
+                    outline: none;
                 }
             }
+        }
+    }
+    #tab-1,
+    #tab-2,
+    #tab-3,
+    #tab-4 {
+        background-color: $primary-white;
+        padding: 1rem;
+        box-shadow: 0px -3px 0px 0px rgba(0, 0, 0, 0.75);
+        p {
+            margin: 1rem 0 1rem 0;
+            line-height: 1.6em;
+            text-align: justify;
+            hyphens: auto;
+        }
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+        }
+    }
+    .ui-tabs-panel {
+        [class^="icon-"],
+        [class*=" icon-"] {
+            display: none;
+        }
+        .col-2{
+            padding: 0;
+        }
     }
 }
 
-
 @media only screen and (min-width: 768px) {
-    #tabs {
+    .tabs {
         .ui-tabs-nav {
-            width: 100%;
             > li {
                 float: left;
                 display: block;
-                
+
                 &:first-of-type {
                     padding-left: 0;
                 }
             }
             .ui-tabs-active {
-                background-color: $primary-white;
-                border: 3px solid $primary-black;
                 border-bottom: transparent;
-                a {
-                    color: $primary-black;
-                    &:focus {
-                        outline: none;
-                    }
-                }
             }
         }
         #tab-1,
         #tab-2,
         #tab-3,
         #tab-4 {
-            background-color: $primary-white;
             p {
                 margin: 0;
+            }
+        }
+        .ui-tabs-panel {
+            [class^="icon-"],
+            [class*=" icon-"] {
+                font-size: 6em;
+                display: block;
+            }
+            .col-2:last-child{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: lighter;
+            }
+            .col-2{
                 padding: 1rem;
-                box-shadow: 0px -3px 0px 0px rgba(0, 0, 0, 0.75);
             }
         }
     }

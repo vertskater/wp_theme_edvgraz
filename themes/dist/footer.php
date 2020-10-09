@@ -49,11 +49,13 @@
             </dd>
         </dl>
     <?php endif; ?>
-    <?php if(!is_page_template('booking.php')): ?>
-    <div class="form-wrapper">
-        <?php echo do_shortcode('[wpforms id="145"]'); ?>
-    </div>
-    <?php endif;?>
+    <?php if (!is_page_template('booking.php')) : ?>
+        <?php if (get_field('form_footer', 'option')) : ?>
+            <div class="form-wrapper animate fade-in">
+                <?php echo do_shortcode(get_field('form_footer', 'option')); ?>
+            </div>
+        <?php endif; ?>
+    <?php endif; ?>
 </aside>
 <footer id="page-footer" class="container">
     <div class="columns">
