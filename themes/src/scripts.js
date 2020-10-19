@@ -24,6 +24,9 @@
                 '<span class="screen-reader-text">Untermenü öffnen</span>' +
                 '</label>');
         });
+        $('#main-nav a').on('click', function(){
+            $('#nabv-trigger').pop('checked', false);
+        })
         $('#main-nav .current-menu-ancestor input[type="checkbox"],#main-nav .current-menu-parent input[type="checkbox"]').attr("checked");
 
         headerImage();

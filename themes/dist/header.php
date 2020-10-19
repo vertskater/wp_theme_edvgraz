@@ -57,7 +57,7 @@
     ?>
     <header id="page-header" <?php echo headerBgImage($imgBG_desktop, $imgBG_mobile); ?>>
         <div class="heading-content">
-            <h1 class="page-title"><?php; echo $headerTitle;?></h1>
+            <h1 class="page-title"><?php echo $headerTitle;?></h1>
             <span class="sub-title"><?php echo $headerSubTitle;?></span>
         </div>
         <?php if (is_page_template('homepage.php')) : ?>

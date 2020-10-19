@@ -39,7 +39,7 @@ add_action('after_setup_theme', function () {
     add_theme_support('align-wide');
     //style für Gutenberg-editor einbinden
     add_theme_support('editor-styles');
-    add_editor_style('style-editor.css');
+    add_editor_style('style-editor.min.css');
     //Responsive Embeds (zb. Youtube Videos, IFrame)
     add_theme_support('responsive-embeds');
     //eigene Farbauswahl-Palette deaktivieren
@@ -84,8 +84,7 @@ add_action('wp_enqueue_scripts', function () {
     //wp_enqueue_style('google-font', '<link href="https://fonts.googleapis.com/css2?family=Grandstander&display=swap" rel="stylesheet">');
     //css-file in den <head> einfügen
     wp_enqueue_style('dev-style', get_template_directory_uri() . '/style.css');
-    wp_enqueue_script('dev-script', get_template_directory_uri() . '/scripts/scripts.js', array('jquery'), '1.0', true);
-    wp_enqueue_script('dev-script', get_template_directory_uri() . '/scripts/megamenu.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('dev-script', get_template_directory_uri() . '/scripts/scripts.min.js', array('jquery'), '1.0', true);
     wp_register_script('owl-script', get_template_directory_uri() . '/scripts/owl.carousel.min.js', array('jquery'), '1.0', true);
 });
 
@@ -101,6 +100,8 @@ function headerBgImage($imgDesktop, $imgMobile)
     }
     return ' class="header-bg-image" data-src-sm="' . $srcSM[0] . '"data-src-lg="' . $srcLG[0] . '"';
 }
+//Add Background-color to Customizer
+add_theme_support( 'custom-background' );
 
 //Add Color to Customizer - Ermöglicht ändern der Textfarben von Header <h1> und <span> Tags.
 function mytheme_customize_register($wp_customize)

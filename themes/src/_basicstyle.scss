@@ -146,7 +146,9 @@ button {
 /*Fromulare
 ---- Plug In WP-Forms Styling
 */
-
+.special-form{
+    background-color: $color-office;
+}
 #kontakt {
     div.wpforms-container-full .wpforms-form button[type="submit"] {
         background-color: $primary-black;
